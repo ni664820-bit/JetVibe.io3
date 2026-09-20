@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JetVibe Airways — Премиум-авиакомпания нового поколения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">Jet<span>Vibe</span></a>
+    <div class="nav__links">
+      <a href="#directions">Направления</a>
+      <a href="#services">На борту</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#offer">Акции</a>
+      <a href="#booking" class="nav__cta">Забронировать</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <a href="#directions">Направления</a>
+  <a href="#services">На борту</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#offer">Акции</a>
+  <a href="#booking">Забронировать</a>
+  <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="" loading="eager">
+  </div>
+  <div class="hero__overlay"></div>
+
+  <!-- AIRPLANE -->
+  <div class="hero__plane" id="heroPlane">
+    <img src="plane.png" alt="Самолёт в полёте" class="hero__plane-img" loading="eager">
+  </div>
+  <div class="hero__content">
+    <div class="hero__left">
+      <div class="hero__tag">Премиум-авиакомпания</div>
+      <h1 class="hero__title">Летайте с<br>ощущением <em>полёта.</em></h1>
+      <p class="hero__subtitle">Премиум-сервис от взлёта до посадки. Индивидуальный подход, VIP-залы, меню от шеф-повара и Wi-Fi на борту.</p>
+      <div class="hero__actions">
+        <a href="#booking" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          Забронировать рейс
+        </a>
+        <a href="#directions" class="btn-ghost">Узнать расписание</a>
+      </div>
+    </div>
+    <div class="hero__right">
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-count="150" data-suffix="+">0</div>
+          <div class="hero__stat-label">Направлений</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-count="500000" data-suffix="">0</div>
+          <div class="hero__stat-label">Пассажиров в год</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-count="99" data-suffix="%">0</div>
+          <div class="hero__stat-label">Довольных клиентов</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-count="24" data-suffix="/7">0</div>
+          <div class="hero__stat-label">Поддержка</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING BAR -->
+<section class="booking container" id="booking">
+  <form class="booking__card" id="bookingForm">
+    <div class="booking__field">
+      <label>Откуда</label>
+      <input type="text" placeholder="Москва (SVO)" value="Москва (SVO)" id="bookFrom">
+    </div>
+    <div class="booking__field">
+      <label>Куда</label>
+      <input type="text" placeholder="Выберите город" id="bookTo">
+    </div>
+    <div class="booking__field">
+      <label>Дата вылета</label>
+      <input type="date" id="bookDepart">
+    </div>
+    <div class="booking__field">
+      <label>Дата возврата</label>
+      <input type="date" id="bookReturn">
+    </div>
+    <div class="booking__field">
+      <label>Пассажиры</label>
+      <select id="bookPassengers">
+        <option>1 взрослый</option>
+        <option>2 взрослых</option>
+        <option>3 взрослых</option>
+        <option>1 + 1 ребёнок</option>
+      </select>
+    </div>
+    <button type="submit" class="booking__submit">Найти рейс</button>
+  </form>
+</section>
+
+<!-- FLIGHT RESULTS -->
+<section class="flight-results" id="flightResults">
+  <div class="container">
+    <div class="flight-results__header">
+      <div>
+        <div class="section-tag">Результаты поиска</div>
+        <h2 class="section-title" id="resultsTitle">Подходящие рейсы</h2>
+      </div>
+      <button class="flight-results__close" id="resultsClose" aria-label="Закрыть">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Скрыть
+      </button>
+    </div>
+    <div class="flight-results__list" id="flightList"></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-tag reveal">Почему выбирают нас</div>
+    <h2 class="section-title reveal reveal-delay-1">Комфорт, который<br>запоминается.</h2>
+    <p class="section-desc reveal reveal-delay-2">Мы создаём впечатления, которые остаются с вами надолго. Каждая деталь продумана до мелочей.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bc7155" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3 class="feature-card__title">Личный менеджер</h3>
+        <p class="feature-card__text">Персональный менеджер сопровождает вас от бронирования до прибытия в пункт назначения.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bc7155" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="feature-card__title">VIP-залы</h3>
+        <p class="feature-card__text">Эксклюзивные залы ожидания с Relax-зоной, горячим питанием и бизнес-центром.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bc7155" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3 class="feature-card__title">Меню от шеф-повара</h3>
+        <p class="feature-card__text">Авторское меню от мишленовских шеф-поваров. Свежие продукты и блюда на заказ.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4">
+        <div class="feature-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bc7155" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <h3 class="feature-card__title">Wi-Fi на борту</h3>
+        <p class="feature-card__text">Высокоскоростной интернет на всех рейсах. Работайте и будьте на связи в воздухе.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTIONS -->
+<section class="directions" id="directions">
+  <div class="container">
+    <div class="section-tag reveal">Наши направления</div>
+    <h2 class="section-title reveal reveal-delay-1">Мир у ваших ног.</h2>
+    <p class="section-desc reveal reveal-delay-2">Более 150 направлений по всему миру. Выберите свой следующий маршрут.</p>
+    <div class="directions__grid">
+      <div class="direction-card reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80" alt="Нью-Йорк">
+        <div class="direction-card__overlay">
+          <div class="direction-card__city">Нью-Йорк</div>
+          <div class="direction-card__route">Москва → Нью-Йорк · 10ч 30м</div>
+        </div>
+        <div class="direction-card__price">от 185 000 ₽</div>
+      </div>
+      <div class="direction-card reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80" alt="Дубай">
+        <div class="direction-card__overlay">
+          <div class="direction-card__city">Дубай</div>
+          <div class="direction-card__route">Москва → Дубай · 5ч 15м</div>
+        </div>
+        <div class="direction-card__price">от 95 000 ₽</div>
+      </div>
+      <div class="direction-card reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" alt="Токио">
+        <div class="direction-card__overlay">
+          <div class="direction-card__city">Токио</div>
+          <div class="direction-card__route">Москва → Токио · 9ч 45м</div>
+        </div>
+        <div class="direction-card__price">от 145 000 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-tag reveal">На борту</div>
+    <h2 class="section-title reveal reveal-delay-1">Сервис<br>без компромиссов.</h2>
+    <p class="section-desc reveal reveal-delay-2">Каждый рейс — это путешествие в мире комфорта и безупречного обслуживания.</p>
+    <div class="services__grid">
+      <div class="service-card reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Питание">
+        <div class="service-card__content">
+          <div class="service-card__label">Питание</div>
+          <h3 class="service-card__title">Премиум-меню</h3>
+          <p class="service-card__text">Блюда от шеф-повара, подобранные вина, свежие закуски и десерты на заказ.</p>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Развлечения">
+        <div class="service-card__content">
+          <div class="service-card__label">Развлечения</div>
+          <h3 class="service-card__title">Медиатека</h3>
+          <p class="service-card__text">Более 500 фильмов, сериалов и подкастов. Персональный экран в каждом кресле.</p>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=800&q=80" alt="Комфорт">
+        <div class="service-card__content">
+          <div class="service-card__label">Комфорт</div>
+          <h3 class="service-card__title">Бизнес-класс</h3>
+          <p class="service-card__text">Кресла с трансформацией в лежачее положение, пледы из кашемира и аксессуары.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED OFFER -->
+<section class="offer" id="offer">
+  <div class="container">
+    <div class="offer__card reveal">
+      <div class="offer__left">
+        <div class="offer__badge">Акция месяца</div>
+        <h2 class="offer__title">Дубай из Москвы<br>со скидкой 30%</h2>
+        <p class="offer__text">Почувствуйте роскошь бизнес-класса по special-цене. Включены VIP-зал, трансфер и багаж 40 кг.</p>
+        <div class="offer__price">
+          <span class="offer__price-from">от</span>
+          <span class="offer__price-val">66 500</span>
+          <span class="offer__price-currency">₽</span>
+        </div>
+        <a href="#booking" class="offer__btn">Бронируйте сейчас</a>
+      </div>
+      <div class="offer__visual">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" rx="20" fill="rgba(255,255,255,0.1)"/>
+          <path d="M50 200 Q200 120 350 200" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+          <path d="M50 220 Q200 140 350 220" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+          <ellipse cx="200" cy="100" rx="60" ry="20" fill="rgba(255,255,255,0.08)"/>
+          <path d="M180 100 L220 100 L210 80 L190 80 Z" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="200" cy="95" r="4" fill="#bc7155"/>
+          <text x="200" y="260" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="14" font-family="Inter,sans-serif">Дубай awaits</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-tag reveal">Отзывы пассажиров</div>
+    <h2 class="section-title reveal reveal-delay-1">Нам доверяют.</h2>
+    <p class="section-desc reveal reveal-delay-2">Более 500 000 пассажиров ежегодно выбирают JetVibe Airways.</p>
+    <div class="reviews__grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">«Невероятный уровень сервиса. Личный менеджер встретил нас у трапа и сопровождал до отеля. Такого комфорта я ещё не испытывал.»</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar">АК</div>
+          <div>
+            <div class="review-card__name">Алексей Козлов</div>
+            <div class="review-card__role">CEO, TechCorp</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">«Лучший бизнес-класс, в котором я летал. Кресло полностью раскладывается, еда на уровне лучших ресторанов. Рекомендую!»</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar">МС</div>
+          <div>
+            <div class="review-card__name">Мария Соколова</div>
+            <div class="review-card__role">Директор, StyleHouse</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">«Лечу с JetVibe уже 3 года. Каждый раз — безупречный сервис. Спокойно работаю в полёте благодаря стабильному Wi-Fi.»</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar">ДВ</div>
+          <div>
+            <div class="review-card__name">Дмитрий Волков</div>
+            <div class="review-card__role">Инвестор</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="container">
+    <div class="partners__title">Наши партнёры</div>
+    <div class="partners__logos">
+      <span class="partners__logo">Emirates</span>
+      <span class="partners__logo">Qatar Airways</span>
+      <span class="partners__logo">Singapore Airlines</span>
+      <span class="partners__logo">Lufthansa</span>
+      <span class="partners__logo">Air France</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">Jet<span>Vibe</span></div>
+      <p class="footer__desc">Премиум-авиакомпания нового поколения. Летайте с комфортом, стилем и уверенностью.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Telegram">TG</a>
+        <a href="#" aria-label="VK">VK</a>
+        <a href="#" aria-label="Instagram">IG</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Направления</div>
+        <a href="#">Нью-Йорк</a>
+        <a href="#">Дубай</a>
+        <a href="#">Токио</a>
+        <a href="#">Лондон</a>
+        <a href="#">Париж</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Компания</div>
+        <a href="#">О нас</a>
+        <a href="#">Карьера</a>
+        <a href="#">Пресс-центр</a>
+        <a href="#">Партнёрам</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Поддержка</div>
+        <a href="#">Контакты</a>
+        <a href="#">FAQ</a>
+        <a href="#">Возврат</a>
+        <a href="#">Багаж</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 JetVibe Airways. Все права защищены.</div>
+      <div class="footer__bottom-links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__content">
+    <button class="modal__close" id="modalClose" aria-label="Закрыть">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal__header">
+      <div class="modal__tag">Оформление билета</div>
+      <h2 class="modal__title" id="modalDestination">Дубай</h2>
+      <div class="modal__route" id="modalRoute">Москва → Дубай</div>
+      <div class="modal__meta">
+        <span class="modal__flight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C20.8 6.8 21 5.5 21 5.5s-1.3-.2-2.7.9L14 9l-8.2-1.8c-.4-.1-.8.1-1 .5l-.3.3c-.2.2-.1.6.1.9l4.7 5.3-2.1 2.1-2.5-.7c-.3-.1-.6 0-.8.2l-.2.2c-.2.3-.1.6.1.8l3 2.3 2.3 3c.2.2.5.3.8.1l.2-.2c.2-.2.3-.5.2-.8l-.7-2.5 2.1-2.1 5.3 4.7c.3.2.7.2.9.1l.3-.3c.4-.2.6-.6.5-1z"/></svg>
+          В полёте: <span id="modalFlight">5ч 15м</span>
+        </span>
+        <span class="modal__price-label">от <strong id="modalPrice">95 000 ₽</strong></span>
+      </div>
+    </div>
+    <form class="modal__form" id="modalForm">
+      <div class="modal__row">
+        <div class="modal__field">
+          <label>Откуда</label>
+          <input type="text" value="Москва (SVO)" readonly>
+        </div>
+        <div class="modal__field">
+          <label>Куда</label>
+          <input type="text" id="modalTo" value="Дубай (DXB)" readonly>
+        </div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__field">
+          <label>Дата вылета</label>
+          <input type="date" required>
+        </div>
+        <div class="modal__field">
+          <label>Дата возврата</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__field">
+          <label>Класс</label>
+          <select>
+            <option>Эконом</option>
+            <option>Комфорт</option>
+            <option selected>Бизнес</option>
+            <option>Первый класс</option>
+          </select>
+        </div>
+        <div class="modal__field">
+          <label>Пассажиры</label>
+          <select>
+            <option>1 взрослый</option>
+            <option>2 взрослых</option>
+            <option>3 взрослых</option>
+            <option>1 + 1 ребёнок</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__field">
+          <label>Имя пассажира</label>
+          <input type="text" placeholder="Иван Иванов" required>
+        </div>
+        <div class="modal__field">
+          <label>Телефон</label>
+          <input type="tel" placeholder="+7 (999) 123-45-67" required>
+        </div>
+      </div>
+      <div class="modal__row">
+        <div class="modal__field modal__field--full">
+          <label>Email</label>
+          <input type="email" placeholder="email@example.com" required>
+        </div>
+      </div>
+      <button type="submit" class="modal__submit">Забронировать билет</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
